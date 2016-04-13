@@ -20,22 +20,29 @@ class SuccessViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        tipTotal.text = String(number)
+        tipTotal.text = "Your total is: \(String(number))"
         print(tip)
-        
         
         switch tip {
         case 0..<0.1:
-            print("maaaan!!")
-            var maybe = UIImage(named: "maybe")
-            emoticon = UIImageView(image: maybe)
-        case 20..<100:
-            var maybe = UIImage(named: "maybe")
-            emoticon = UIImageView(image: maybe)
+            print("sad")
+            //check if image exists before trying to load it. (maybe include this lineas a hint in the tutorial?)
+            if let image = UIImage(named:"sad") {
+                emoticon?.image = image
+            }
+        case 0.1..<0.2:
+            print("maybe")
+            if let image = UIImage(named:"maybe") {
+                emoticon?.image = image
+            }
         default:
-            var maybe = UIImage(named: "maybe")
-            emoticon = UIImageView(image: maybe)
+            print("happy")
+
+            if let image = UIImage(named:"happy") {
+                emoticon?.image = image
+            }
         }
+        
         
         
     }

@@ -13,6 +13,7 @@ class TipCalculatorModel {
   var total: Double
   var tipPct: Double
   var result: Double {
+    //this gets called anytime an bjcts tries to access this property
     get {
       return total + (total*tipPct)
     }

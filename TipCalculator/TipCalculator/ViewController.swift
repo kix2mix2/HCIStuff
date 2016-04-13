@@ -14,17 +14,14 @@ class ViewController: UIViewController {
   @IBOutlet var tipPctSlider : UISlider!
   @IBOutlet var tipPctLabel : UILabel!
   @IBOutlet var resultsTextView : UITextView!
-  let tipCalc = TipCalculatorModel(total: 33.25, tipPct: 0.06)
+  let tipCalc = TipCalculatorModel(total: 50, tipPct: 0.05)
  
   func refreshUI() {
-    // 1
-    totalTextField.text = String(format: "%0.2f", tipCalc.total)
-    // 2
+ 
     tipPctSlider.value = Float(tipCalc.tipPct) * 100.0
-    // 3
-    tipPctLabel.text = "tip Percentage (\(Int(tipPctSlider.value))%)"
-    // 4
-    resultsTextView.text = ""
+    tipPctLabel.text = "Tip Percentage (\(Int(tipPctSlider.value))%)"
+    print("Slider Value \(tipPctSlider.value)")
+
   }
 
   override func viewDidLoad() {
@@ -46,13 +43,13 @@ class ViewController: UIViewController {
 }
     
   @IBAction func calculateTapped(sender : AnyObject) {
-    // 1
     tipCalc.total = Double((totalTextField.text! as NSString).doubleValue)
 
   }
 
   @IBAction func tipPercentageChanged(sender : AnyObject) {
-    tipCalc.tipPct = Double(tipPctSlider.value) / 100.0
+    // round the slider value to an int for simplicity
+    tipCalc.tipPct = round(Double(tipPctSlider.value)) / 100.0
     refreshUI()
   }
   
