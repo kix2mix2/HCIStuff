@@ -23,5 +23,6 @@ class TipCalculatorModel {
     self.total = total
     self.tipPct = tipPct
   }
-  
+    
+    
 }
