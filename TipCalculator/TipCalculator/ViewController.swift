@@ -15,13 +15,13 @@ class ViewController: UIViewController {
   @IBOutlet var tipPctLabel : UILabel!
   @IBOutlet var resultsTextView : UITextView!
   let tipCalc = TipCalculatorModel(total: 50, tipPct: 0.05)
- 
+    
   func refreshUI() {
  
     tipPctSlider.value = Float(tipCalc.tipPct) * 100.0
     tipPctLabel.text = "Tip Percentage (\(Int(tipPctSlider.value))%)"
     print("Slider Value \(tipPctSlider.value)")
-
+    
   }
 
   override func viewDidLoad() {
